@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.inditex.com/xsd/maestrosPTR_xsd_v1"
+            targetNamespace="http://www.inditex.com/xsd/maestrosPTR_xsd_v1" elementFormDefault="qualified">
+            
+    <xsd:annotation>
+		<xsd:documentation>
+			Definición de la Entidad de Negocio: maestrosPTR_xsd
+		</xsd:documentation>
+	</xsd:annotation>
+	
+    
+
+    <xsd:element name="getCambioReferenciaRequest">
+    	<xsd:complexType>
+    	</xsd:complexType></xsd:element>
+
+    <xsd:element name="getCambioReferenciaResponse">
+    	<xsd:complexType>
+    		<xsd:sequence>
+    			<xsd:element name="cambioReferencia" type="cambioReferenciaType" maxOccurs="unbounded" minOccurs="1"></xsd:element>
+    		</xsd:sequence>
+    	</xsd:complexType></xsd:element>
+
+    <xsd:simpleType name="idPaisType">
+    	<xsd:restriction base="xsd:int"></xsd:restriction>
+    </xsd:simpleType>
+
+
+    <xsd:simpleType name="tasaCambioType">
+    	<xsd:restriction base="xsd:double"></xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="cambioReferenciaType">
+    	<xsd:sequence>
+    		<xsd:element name="idPais" type="idPaisType"></xsd:element>
+    		<xsd:element name="tasaCambio" type="tasaCambioType"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+       
+    
+
+
+
+
+    <xsd:element name="getTiendasTmallRequest"><xsd:complexType></xsd:complexType></xsd:element>
+
+    <xsd:element name="getTiendasTmallResponse">
+    	<xsd:complexType>
+    		<xsd:sequence>
+    			<xsd:element name="tienda" type="xsd:int" maxOccurs="unbounded" minOccurs="1"></xsd:element>
+    		</xsd:sequence>
+    	</xsd:complexType></xsd:element>
+</xsd:schema>
