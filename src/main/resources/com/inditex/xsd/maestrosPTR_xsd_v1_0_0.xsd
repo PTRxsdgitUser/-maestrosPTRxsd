@@ -5,6 +5,11 @@
     <xsd:annotation>
 		<xsd:documentation>
 			Definición de la Entidad de Negocio: maestrosPTR_xsd
+
+09-08-2017
+V1.0.1 Nuevos metodos getTiendasTmall, getMMTTCampanaPeriodo, getMMTTCampanaPeriodo, getMMTTFecha
+		
+			
 		</xsd:documentation>
 	</xsd:annotation>
 	
@@ -36,12 +41,7 @@
     		<xsd:element name="tasaCambio" type="tasaCambioType"></xsd:element>
     	</xsd:sequence>
     </xsd:complexType>
-       
-    
-
-
-
-
+ 
     <xsd:element name="getTiendasTmallRequest"><xsd:complexType></xsd:complexType></xsd:element>
 
     <xsd:element name="getTiendasTmallResponse">
@@ -49,5 +49,125 @@
     		<xsd:sequence>
     			<xsd:element name="tienda" type="xsd:int" maxOccurs="unbounded" minOccurs="1"></xsd:element>
     		</xsd:sequence>
-    	</xsd:complexType></xsd:element>
+    </xsd:complexType></xsd:element>
+
+		
+		
+		
+		<xsd:element name="getMMTTCampanaPeriodoRequest">
+    	<xsd:complexType>
+    		<xsd:sequence>
+    			<xsd:element name="tienda" type="xsd:int" maxOccurs="unbounded" minOccurs="1"></xsd:element>
+				<xsd:element name="seccion" type="xsd:int" maxOccurs="3" minOccurs="1"></xsd:element>
+				<xsd:element name="campana" type="CampaignType" maxOccurs="2" minOccurs="1"></xsd:element>
+				<xsd:element name="periodo" type="SeasonType" maxOccurs="2" minOccurs="1"></xsd:element>
+			</xsd:sequence>
+    	</xsd:complexType>
+		</xsd:element>
+		
+		<xsd:element name="getMMTTCampanaPeriodoResponse">
+    	<xsd:complexType>
+			<xsd:sequence>
+    			<xsd:element name="MTTCamapanaPeriodo" type="MTTCamapanaPeriodoType" maxOccurs="unbounded" minOccurs="1"></xsd:element>
+    		</xsd:sequence>
+    	</xsd:complexType>
+		</xsd:element>
+		
+		<xsd:complexType name="MTTCamapanaPeriodoType">
+			<xsd:sequence>
+    			<xsd:element name="tienda" type="xsd:int"></xsd:element>
+				<xsd:element name="seccion" type="xsd:int"></xsd:element>
+				<xsd:element name="campana" type="CampaignType" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+				<xsd:element name="periodo" type="SeasonType" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+				<xsd:element name="mismaCampana" type="xsd:int"></xsd:element>
+			</xsd:sequence>
+    	</xsd:complexType>
+		
+		
+		
+		<xsd:simpleType name="CampaignSeasonType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="V" />
+			<xsd:enumeration value="I" />
+		</xsd:restriction>
+		</xsd:simpleType>
+		
+	<xsd:simpleType name="YearType">
+		<xsd:restriction base="xsd:gYear">
+			<xsd:minExclusive value="1900"></xsd:minExclusive>
+			<xsd:maxInclusive value="9999"></xsd:maxInclusive>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:complexType name="CampaignType">
+		<xsd:sequence>
+			<xsd:element name="campaignSeason" type="CampaignSeasonType" maxOccurs="1"
+				minOccurs="1">
+			</xsd:element>
+			<xsd:element name="year" type="YearType" maxOccurs="1"
+				minOccurs="1"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	  <xsd:simpleType name="SeasonType">
+    	<xsd:restriction base="xsd:string">
+    		<xsd:enumeration value="TEMPORADA"></xsd:enumeration>
+    		<xsd:enumeration value="REBAJAS"></xsd:enumeration>
+    	</xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="MTTFechaType">
+        <xsd:sequence>
+            <xsd:element name="tienda" type="xsd:int"></xsd:element>
+                    <xsd:element name="seccion" type="xsd:int"></xsd:element>
+                    <xsd:element name="mismoDia" type="xsd:int"></xsd:element>
+                    <xsd:element name="mismaSemana" type="xsd:int"></xsd:element>
+                    <xsd:element name="mismoMes" type="xsd:int"></xsd:element>
+                    <xsd:element name="mismoTrimestre" type="xsd:int"></xsd:element>
+                    <xsd:element name="mismoSemestre" type="xsd:int"></xsd:element>
+                    <xsd:element name="mismoAnoFiscal" type="xsd:int"></xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>           
+        
+    <xsd:element name="getMMTTFechaRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                    <xsd:element name="tienda" type="xsd:int" maxOccurs="unbounded" minOccurs="1"></xsd:element>
+                    <xsd:element name="seccion" type="xsd:int" maxOccurs="3" minOccurs="1"></xsd:element>
+                    <xsd:element name="fecha" type="xsd:date" maxOccurs="1" minOccurs="1"></xsd:element>
+            </xsd:sequence>
+        </xsd:complexType></xsd:element>
+        
+    <xsd:element name="getMMTTFechaResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                    <xsd:element name="MTTFecha" type="MTTFechaType" maxOccurs="unbounded" minOccurs="1"></xsd:element>
+            </xsd:sequence>
+        </xsd:complexType></xsd:element>
+        
+    <xsd:complexType name="MTTCampanaType">
+        <xsd:sequence>
+                    <xsd:element name="tienda" type="xsd:int"></xsd:element>
+                    <xsd:element name="seccion" type="xsd:int"></xsd:element>
+                    <xsd:element name="campana" type="CampaignType"></xsd:element>
+                    <xsd:element name="mismaCampana" type="xsd:int"></xsd:element>                 
+        </xsd:sequence>
+    </xsd:complexType>              
+        
+    <xsd:element name="getMMTTCampanaRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                    <xsd:element name="tienda" type="xsd:int" maxOccurs="unbounded" minOccurs="1"></xsd:element>
+                    <xsd:element name="seccion" type="xsd:int" maxOccurs="3" minOccurs="1"></xsd:element>
+                    <xsd:element name="campana" type="CampaignType" maxOccurs="2" minOccurs="1"></xsd:element>
+            </xsd:sequence>
+        </xsd:complexType></xsd:element>
+        
+    <xsd:element name="getMMTTCampanaResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                    <xsd:element name="MTTCampana" type="MTTCampanaType" maxOccurs="unbounded" minOccurs="1"></xsd:element>   
+            </xsd:sequence>
+        </xsd:complexType></xsd:element>
+    	
 </xsd:schema>
