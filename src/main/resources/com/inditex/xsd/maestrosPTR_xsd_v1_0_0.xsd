@@ -169,5 +169,50 @@ V1.0.1 Nuevos metodos getTiendasTmall, getMMTTCampanaPeriodo, getMMTTCampanaPeri
                     <xsd:element name="MTTCampana" type="MTTCampanaType" maxOccurs="unbounded" minOccurs="1"></xsd:element>   
             </xsd:sequence>
         </xsd:complexType></xsd:element>
+		
+	<xsd:element name="getTiendasByPaisISOyCadenaRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                    <xsd:element name="codPaisIso" type="xsd:int" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+                    <xsd:element name="idCadena" type="xsd:int" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+            </xsd:sequence>
+		</xsd:complexType></xsd:element>
+		
+    
+    <xsd:element name="getTiendasByPaisISOyCadenaResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                    <xsd:element name="listaTiendas" type="ListaTiendasType" maxOccurs="unbounded" minOccurs="1"></xsd:element>   
+            </xsd:sequence>
+        </xsd:complexType></xsd:element>
+		
+	<xsd:element name="getTiendasByIdPaisyCadenaRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                    <xsd:element name="idPais" type="xsd:int" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+                    <xsd:element name="idCadena" type="xsd:int" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+            </xsd:sequence>
+		</xsd:complexType></xsd:element>
+		
+    
+    <xsd:element name="getTiendasByIdPaisyCadenaResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                    <xsd:element name="listaTiendas" type="ListaTiendasType" maxOccurs="unbounded" minOccurs="1"></xsd:element>   
+            </xsd:sequence>
+        </xsd:complexType>
+	</xsd:element>
+		
+		
+	<xsd:complexType name="TiendasType">
+        <xsd:sequence>
+                    <xsd:element name="idPais" type="xsd:int"></xsd:element>
+                    <xsd:element name="paisIso" type="xsd:int"></xsd:element>
+                    <xsd:element name="idCadena" type="xsd:int"></xsd:element>
+                    <xsd:element name="nombreCadena" type="xsd:string"></xsd:element>
+					<xsd:element name="idTienda" type="xsd:int"></xsd:element> 
+					<xsd:element name="nombreTienda" type="xsd:string"></xsd:element>  					
+        </xsd:sequence>
+	</xsd:complexType>
     	
 </xsd:schema>
