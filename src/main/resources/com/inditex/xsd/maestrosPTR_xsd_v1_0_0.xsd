@@ -213,11 +213,11 @@ V1.0.2 Nuevos metodos obtenerTiendasByPaisISOyCadena, obtenerTiendasByIdPaisyCad
         <xsd:sequence>
                     <xsd:element name="idPais" type="xsd:int"></xsd:element>
                     <xsd:element name="paisIso" type="xsd:int"></xsd:element>
+					<xsd:element name="nombrePais" type="xsd:string"></xsd:element>
                     <xsd:element name="idCadena" type="xsd:int"></xsd:element>
                     <xsd:element name="nombreCadena" type="xsd:string"></xsd:element>
 					<xsd:element name="idTienda" type="xsd:int"></xsd:element> 
 					<xsd:element name="nombreTienda" type="xsd:string"></xsd:element> 
-					<xsd:element name="pais" type="xsd:string"></xsd:element>
         </xsd:sequence>
 	</xsd:complexType>
     	
