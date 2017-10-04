@@ -178,7 +178,7 @@ V1.0.2 Nuevos metodos obtenerTiendasByPaisISOyCadena, obtenerTiendasByIdPaisyCad
 	<xsd:element name="getTiendasByPaisISOyCadenaRequest">
         <xsd:complexType>
             <xsd:sequence>
-                    <xsd:element name="paisIso" type="pref:CountryIDType" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+                    <xsd:element name="codPaisIso" type="pref:CountryIDType" maxOccurs="unbounded" minOccurs="0"></xsd:element>
                     <xsd:element name="idCadena" type="pref:BrandType" maxOccurs="unbounded" minOccurs="0"></xsd:element>
             </xsd:sequence>
         </xsd:complexType>
