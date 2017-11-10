@@ -13,7 +13,10 @@
 V1.0.1 Nuevos metodos getTiendasTmall, getMMTTCampanaPeriodo, getMMTTCampanaPeriodo, getMMTTFecha
 
 13-09-2017
-V1.0.2 Nuevos metodos obtenerTiendasByPaisISOyCadena, obtenerTiendasByIdPaisyCadena 	
+V1.0.2 Nuevos metodos obtenerTiendasByPaisISOyCadena, obtenerTiendasByIdPaisyCadena 
+
+10-11-2017
+V1.0.3 Añadidos idPais e idCadena al objeto GetMMTTFechaRequest	
 			
 		</xsd:documentation>
 	</xsd:annotation>
@@ -138,6 +141,8 @@ V1.0.2 Nuevos metodos obtenerTiendasByPaisISOyCadena, obtenerTiendasByIdPaisyCad
         <xsd:complexType>
             <xsd:sequence>
                     <xsd:element name="tienda" type="xsd:int" maxOccurs="unbounded" minOccurs="1"></xsd:element>
+                    <xsd:element name="pais" type="pref:CountryIDType" maxOccurs="1" minOccurs="0"></xsd:element>
+                    <xsd:element name="idCadena" type="pref:BrandType" maxOccurs="1" minOccurs="1"></xsd:element>
                     <xsd:element name="seccion" type="xsd:int" maxOccurs="3" minOccurs="1"></xsd:element>
                     <xsd:element name="fecha" type="xsd:date" maxOccurs="1" minOccurs="1"></xsd:element>
             </xsd:sequence>

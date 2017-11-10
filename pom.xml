@@ -13,6 +13,7 @@
     <version>1.0.0</version>
     
     <properties>
+    	<java.version>1.7</java.version>
         <itx-xsd2java.xsd>com/inditex/xsd/maestrosPTR_xsd_v1_0_0.xsd</itx-xsd2java.xsd>
     </properties>
 </project>
